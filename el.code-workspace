@@ -1,0 +1,31 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "cSpell.enableFiletypes": [
+            "elixir"
+        ],
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true,
+        "editor.wordWrap": "on",
+        "elixirLS.fetchDeps": false,
+        "elixirLS.mixEnv": "dev",
+        "emeraldwalk.runonsave": {
+            "commands": [
+                {
+                    "match": "\\.exs?$",
+                    "isAsync": true,
+                    "cmd": "cd ${workspaceRoot} && mix format ${file}"
+                },
+            ]
+        },
+        "files.associations": {
+            ".env-*": "dotenv",
+            "files.eol": "\n",
+            "workbench.editor.highlightModifiedTabs": true
+        }
+    }
+}

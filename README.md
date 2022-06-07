@@ -1,6 +1,6 @@
 # Elixir Logging
 
-An Elixir app demonstrating setting up structured logging.
+An Elixir app template demonstrating setting up structured logging.
 
 ## Getting it started
 

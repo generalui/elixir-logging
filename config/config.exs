@@ -65,7 +65,7 @@ config :elixir_logging, ElixirLoggingWeb.Endpoint,
       ~r{lib/elixir_logging_web/views/.*(ex)$}
     ]
   ],
-  pubsub_server: ReactMobile.PubSub,
+  pubsub_server: ElixirLogging.PubSub,
   reloadable_compilers: [:gettext, :phoenix, :elixir, :phoenix_swagger],
   render_errors: [view: ElixirLoggingWeb.ErrorView, accepts: ~w(html json), layout: false],
   url: [host: "localhost"]

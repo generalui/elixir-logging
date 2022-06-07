@@ -1,0 +1,16 @@
+{
+    "recommendations": [
+        "bierner.markdown-preview-github-styles",
+        "davidanson.vscode-markdownlint",
+        "donjayamanne.githistory",
+        "eamodio.gitlens",
+        "emeraldwalk.runonsave",
+        "github.vscode-pull-request-github",
+        "jakebecker.elixir-ls",
+        "mikestead.dotenv",
+        "pantajoe.vscode-elixir-credo",
+        "shakram02.bash-beautify",
+        "shardulm94.trailing-spaces",
+        "streetsidesoftware.code-spell-checker"
+    ]
+}

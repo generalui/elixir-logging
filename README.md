@@ -1,4 +1,4 @@
-# elixir-logging
+# Elixir Logging
 
 An Elixir app demonstrating setting up structured logging.
 

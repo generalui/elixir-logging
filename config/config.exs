@@ -70,7 +70,7 @@ config :elixir_logging, ElixirLoggingWeb.Endpoint,
   render_errors: [view: ElixirLoggingWeb.ErrorView, accepts: ~w(html json), layout: false],
   url: [host: "localhost"]
 
-config :logger_json, :backend, on_init: {ElixirLogging.Logs.Logger, :load_config, [env]}
+config :logger_json, :backend, on_init: {ElixirLogging.Logs.Logger, :load_config, [level: log_level]}
 
 # Configures Elixir's Logger
 config :logger, backends: [LoggerJSON], level: log_level

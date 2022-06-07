@@ -7,15 +7,15 @@ defmodule ElixirLogging.Application do
 
   @impl true
   def start(_type, _args) do
-    # if Application.fetch_env!(:elixir_logging, :json_logging) do
-    #   :ok =
-    #     :telemetry.attach(
-    #       "logger-json-ecto",
-    #       [:elixir_logging, :repo, :query],
-    #       &LoggerJSON.Ecto.telemetry_logging_handler/4,
-    #       :debug
-    #     )
-    # end
+    if Application.fetch_env!(:elixir_logging, :json_logging) do
+      :ok =
+        :telemetry.attach(
+          "logger-json-ecto",
+          [:elixir_logging, :repo, :query],
+          &LoggerJSON.Ecto.telemetry_logging_handler/4,
+          :debug
+        )
+    end
     children = [
       # Start the Telemetry supervisor
       ElixirLogging.Telemetry,

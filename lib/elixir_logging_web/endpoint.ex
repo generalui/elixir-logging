@@ -30,6 +30,10 @@ defmodule ElixirLoggingWeb.Endpoint do
     plug Phoenix.CodeReloader
   end
 
+  if Application.fetch_env!(:elixir_logging, :json_logging) do
+    plug LoggerJSON.Plug, formatter: LoggerJSON.Plug.MetadataFormatters.ELK
+  end
+
   plug Phoenix.LiveDashboard.RequestLogger,
     param_key: "request_logger",
     cookie_key: "request_logger"

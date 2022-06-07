@@ -12,6 +12,13 @@ is_prod = env == :prod
 is_dev = env == :dev
 is_test = env == :test
 
+log_level =
+  cond do
+    is_dev -> :debug
+    is_prod -> :info
+    is_test -> :warn
+  end
+
 # Load the environment variables from the appropriate .env file.
 env_ext = if is_prod, do: "", else: "-#{env}"
 
@@ -43,15 +50,7 @@ rescue
     )
 end
 
-log_level =
-  cond do
-    is_dev -> :debug
-    is_prod -> :info
-    is_test -> :warn
-  end
-
 config :elixir_logging,
-  ecto_repos: [ElixirLogging.Repo],
   env: env,
   json_logging: true
 
@@ -66,7 +65,7 @@ config :elixir_logging, ElixirLoggingWeb.Endpoint,
       ~r{lib/elixir_logging_web/views/.*(ex)$}
     ]
   ],
-  pubsub_server: ElixirLogging.PubSub,
+  pubsub_server: ReactMobile.PubSub,
   reloadable_compilers: [:gettext, :phoenix, :elixir, :phoenix_swagger],
   render_errors: [view: ElixirLoggingWeb.ErrorView, accepts: ~w(html json), layout: false],
   url: [host: "localhost"]

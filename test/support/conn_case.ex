@@ -32,7 +32,6 @@ defmodule ElixirLoggingWeb.ConnCase do
   end
 
   setup tags do
-    ElixirLogging.DataCase.setup_sandbox(tags)
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
 end

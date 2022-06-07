@@ -35,17 +35,14 @@ defmodule ElixirLogging.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:ecto_sql, "~> 3.6"},
       {:gettext, "~> 0.18"},
-      {:jason, "~> 1.2"},
+      {:jason, "~> 1.3"},
       {:logger_json, "~> 5.0"},
       {:phoenix, "~> 1.6.10"},
-      {:phoenix_ecto, "~> 4.4"},
       {:phoenix_html, "~> 3.0"},
       {:phoenix_live_dashboard, "~> 0.6"},
       {:phoenix_live_view, "~> 0.17.5"},
       {:plug_cowboy, "~> 2.5"},
-      {:postgrex, ">= 0.16.3"},
       {:telemetry_metrics, "~> 0.6.1"},
       {:telemetry_poller, "~> 1.0"},
 
@@ -61,15 +58,6 @@ defmodule ElixirLogging.MixProject do
   #
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
-    [
-      "ecto.reset": ["ecto.drop --repo ElixirLogging.Repo", "ecto.setup"],
-      "ecto.setup": [
-        "ecto.create --repo ElixirLogging.Repo",
-        "ecto.migrate --repo ElixirLogging.Repo",
-        "run priv/repo/seeds.exs"
-      ],
-      setup: ["deps.get", "ecto.setup"],
-      test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"]
-    ]
+    [setup: ["deps.get"]]
   end
 end

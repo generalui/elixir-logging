@@ -2,9 +2,6 @@ import Config
 
 application_port = String.to_integer(System.get_env("PORT") || "4000")
 
-database_url =
-  System.get_env("DATABASE_URL") || raise("Environment variable for DATABASE_URL not set!")
-
 secret_key_base =
   System.get_env("SECRET_KEY_BASE") || raise("environment variable SECRET_KEY_BASE is missing.")
 
@@ -12,16 +9,8 @@ website_host = System.get_env("WEBSITE_HOST") || "example.com"
 
 config :elixir_logging,
   base_url: "https://#{website_host}",
-  database_url: database_url,
   scheme: "https",
   website_host: website_host
-
-# Database config
-config :elixir_logging, ElixirLogging.Repo,
-  pool_size: String.to_integer(System.get_env("MAX_POOL") || "10"),
-  show_sensitive_data_on_connection_error: false,
-  ssl: true,
-  url: database_url
 
 # For production, don't forget to configure the url host
 # to something meaningful, Phoenix uses this information

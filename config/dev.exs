@@ -2,9 +2,6 @@ import Config
 
 application_port = String.to_integer(System.get_env("PORT") || "4000")
 
-database_url =
-  System.get_env("DATABASE_URL") || "ecto://postgres:docker@localhost/elixir_logging_dev"
-
 is_release = System.get_env("RELEASE")
 
 secret_key_base =
@@ -20,16 +17,6 @@ json_logging = !(website_host == "localhost" and System.get_env("CONSOLE_LOGGING
 config :elixir_logging,
   json_logging: json_logging,
   website_host: website_host
-
-# Configure your database
-config :elixir_logging, ElixirLogging.Repo,
-  pool_size: String.to_integer(System.get_env("MAX_POOL") || "10"),
-  # If the "RELEASE" environment variable is NOT set, show sensitive data on connection error.
-  show_sensitive_data_on_connection_error: !is_release,
-  # If running a local DB and it isn't set up for SSL, set this to `false`.
-  ssl: false,
-  stacktrace: true,
-  url: database_url
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
